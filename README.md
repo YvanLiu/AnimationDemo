@@ -1,7 +1,8 @@
 # AnimationDemo
 
+# YFAnimationCostum.h
+
 ```
-YFAnimationCostum.h
 
 /**
 *  永久的闪烁动画
@@ -275,5 +276,40 @@ YFAnimationCostum.h
 */
 + (void)animationFade:(UIView *)view duration:(CFTimeInterval)duration;
 
+
+```
+# UINavigationController+YFTransition.h
+
+```
+typedef NS_ENUM(NSInteger, YFPushAnimation) {
+YFPushAnimationDefine,          //默认
+YFPushAnimationCurl,            //翻页
+YFPushAnimationCurlTWo,         //翻页二
+YFPushAnimationFlip,            //翻转
+YFPushAnimationCube,            //立方体
+YFPushAnimationSuckEffect,      //吸收
+YFPushAnimationRippleEffect,    //波纹
+YFPushAnimationCameraIris,      //镜头
+YFPushAnimationReveal,          //覆盖
+YFPushAnimationFade,            //淡入
+};
+@interface UINavigationController (YFTransition)
+
+/**
+*  push方法
+*
+*  @param viewController 视图控制器
+*  @param animated       动画类型
+*/
+- (void)pushViewController:(nullable UIViewController *)viewController withAnimated:(YFPushAnimation)animated;
+
+/**
+*  pop方法
+*
+*  @param animated 动画类型
+*
+*  @return 视图控制器
+*/
+- (nullable UIViewController *)popViewControllerWithAnimated:(YFPushAnimation)animated;
 
 ```
